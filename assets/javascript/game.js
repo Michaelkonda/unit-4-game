@@ -8,10 +8,10 @@ $(document).ready(function() {
 	$('#win').text(wins);
 	$('#loss').text(losses);
 	
-	newCrystals();
+	newCrystal();
 	newGame();
 
-	function newCrystals () {
+	function newCrystal () {
 		var numbers = []
 			while(numbers.length < 4){
 			  var randomnumber = Math.ceil(Math.random()*12)
@@ -24,17 +24,18 @@ $(document).ready(function() {
 			  if(!found)numbers[numbers.length]=randomnumber;
 			}
 		console.log(numbers);		
-
+// Appending random number to the randomNumber id in the html doc
+  //
 		for (i = 0; i < numbers.length; i++) {
-			var imageCrystal = $('<img>');
-			imageCrystal.attr('data-num', numbers[i]);
-			imageCrystal.attr('src', crystals[i]);
-			imageCrystal.attr('alt', 'crystals');
-			imageCrystal.addClass('crystalImage')
-			$('#crystals').append(imageCrystal);
+			var newCrystal = $('<img>');
+			newCrystal.attr('data-num', numbers[i]);
+			newCrystal.attr('src', crystals[i]);
+			newCrystal.attr('alt', 'crystals');
+			newCrystal.addClass('newCrystal')
+			$('#crystals').append(newCrystal);
 		}
 	}
-
+// Resets the game.
 	function newGame() {
 
 		counter = 0;
@@ -43,16 +44,19 @@ $(document).ready(function() {
 		function randomIntFromInterval(min,max){
 		   	return Math.floor(Math.random()*(max-min+1)+min);
 			}
-
+// Selects a random number to be shown at the start of the game
+  // Number should be should be between 19 - 120
+  //
 		var numberToGuess = randomIntFromInterval(19,120);
 
 		$('.value').text(numberToGuess);
 
 
-		$('.crystalImage').on('click', function(){
+		$('.newCrystal').on('click', function(){
 		    counter = counter + parseInt($(this).data('num'));
 		   
-		    $('#yourScore').text(counter);
+				$('#yourScore').text(counter);
+				//adds the wins and losses to the userTotal
 
 		    if (counter == numberToGuess){
 		      $('#status').text('You won!!!!');
@@ -60,7 +64,7 @@ $(document).ready(function() {
 		      $('#win').text(wins);
 		      console.log(wins)
 		      $('#crystals').empty();
-		      newCrystals();
+		      newCrystal();
 		      newGame();
 		        
 		    } else if ( counter > numberToGuess){
@@ -69,7 +73,7 @@ $(document).ready(function() {
 		        $('#loss').text(losses);
 		        console.log(losses)
 		        $('#crystals').empty();
-		        newCrystals();
+		        newCrystal();
 		        newGame();
 		    }
 		});
