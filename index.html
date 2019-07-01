@@ -1,51 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>Crystal Collectors</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crystal Collector</title>
+    <!---Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
+
 <body>
+    <div class="container">
+        <!---Crystal collector Jumbotron-->
+        <div class="jumbotron" style="background-color:aqua; color: white;">
+            <div class="container">
+                <h1 class="text-center"><strong>Crystal Collector</strong></h1>
+            </div>
+        </div>
 
-<div id = "wrapper">
-
-<h1><span>Crystal Collector<span></h1>
-
-	<div id="instructions">
-		<p> You will be given a random number at the start of the game.</p>
+        <!--Main content row-->
+        <div class="row">
+            <!--Instructions-->
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">Instructions</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p> You will be given a random number at the start of the game.</p>
 		<p> There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
 		<p> You win the game by matching your total score to the random number. You lose the game if your total score goes above the random number. </p>
 		<p> Each time the game starts, the game will change the values of each crystal.</p>
-	</div>
-
-	<div class = "container">
-		<div id="guessingNumber">
-			<h2>Number to Guess: <span class="value"></span></h2> 	
-		</div>
-
-		<div id="scoreboard">
-			<h3><span id="status"></span></h3>
-			<h3>Wins: <span id="win"></span></h3>
-			<h3>Losses: <span id="loss"></span> </h3>
-		</div>
-	</div>
-
-	
-	<div id="crystals"></div>
-
-	<div id ="totalScore">
-		<h2 id = "yts">Your Total Score is: <span id ="yourScore">0</span></h2>
-		
-	</div>
-
-</div>
+                    </div>
+                </div>
 
 
-<!-- adding jQuery -->
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+            </div>
 
-<script type="text/javascript" src="assets/javascript/game.js"></script>
 
+
+        </div>
+        <!--Scores and Crystals-->
+        <div class="row">
+
+            <!--Target score-->
+
+            <div class="col-lg-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">Target Score</h3>
+                    </div>
+                    <div class="panel-body">
+                        <h3 class="text-center" id="targetScore"></h3>
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+        <!--Your score-->
+
+
+        <div class="col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Your Score</h3>
+                </div>
+                <div class="panel-body">
+                    <h3 class="text-center" id="yourScore"></h3>
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <!--Crystals-->
+
+        <div class="col-lg-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Crystal Selector</h3>
+                </div>
+                <div class="panel-body text-center">
+                    <img src="images/blue.png" alt="" id="blue">
+                    <img src="images/green.png" alt="" id="green">
+                    <img src="images/red.png" alt="" id="red">
+                    <img src="images/yellow.png" alt="" id="yellow">
+
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <!--Counters row-->
+        <div class="row">
+            <div class="col-lg-6">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">Win Count</h3>
+                    </div>
+                    <div class="panel-body">
+                        <h3 class="text-center" id="winCount">0</h3>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-lg-6">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Loss Count</h3>
+                </div>
+                <div class="panel-body">
+                    <h3 class="text-center" id="lossCount">0</h3>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+    </div>
+    <!--Jqery Script src-->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <!--Main js-->
+    <script src="logic.js"></script>
 
 </body>
+
 </html>
